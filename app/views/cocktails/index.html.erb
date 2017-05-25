@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1>Cocktails</h1>
+      <% @cocktails.each do |cocktail| %>
+        <p><%= cocktail.name %></p>
+        <p><%= link_to "Edit this cocktail", edit_cocktail_path(cocktail) %> |
+        <%= link_to "Delete this cocktail", cocktail_path(cocktail), method: :delete %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
