@@ -1,12 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <% @cocktails.each do |cocktail| %>
-        <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-        <p><%= link_to "Edit", edit_cocktail_path(cocktail) %> |
-        <%= link_to "Delete", cocktail_path(cocktail), method: :delete %></p>
-      <% end %>
-    </div>
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+          <div class="card-description">
+            <h3><%= cocktail.name %></h3>
+            <p>
+              <%= link_to "Edit", edit_cocktail_path(cocktail) %> |
+              <%= link_to "Delete", cocktail_path(cocktail), method: :delete %>
+            </p>
+          </div>
+          <img class="card-user avatar" src="user.jpg">
+          <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
 
