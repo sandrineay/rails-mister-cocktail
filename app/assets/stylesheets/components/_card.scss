@@ -43,3 +43,19 @@
 .card-link:hover{
   opacity: 0.1;
 }
+
+.card-white {
+  height: 300px;
+  background-color: white;
+  color: rgb(50, 50, 50);
+  position: relative;
+  margin-top: 30px;
+  padding-top: 5px;
+  border-radius: 4px;
+  ul {
+    list-style: none;
+  }
+  p {
+    color: rgb(50, 50, 50);
+  };
+}

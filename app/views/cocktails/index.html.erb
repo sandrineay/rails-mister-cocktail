@@ -2,7 +2,8 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path 'background.jpg' %>)">
+        <% image_url = cocktail.photo? ? cl_image_path(cocktail.photo.path, height: 300, width: 400, crop: :fill) : image_path('background.jpg') %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url %>)">
           <div class="card-description">
             <h3><%= cocktail.name %></h3>
           </div>
@@ -12,6 +13,7 @@
     <% end %>
   </div>
 </div>
+
 
 
 

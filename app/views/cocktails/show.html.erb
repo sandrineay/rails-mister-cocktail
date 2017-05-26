@@ -1,22 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1><%= @cocktail.name %></h1>
-
-      <p><strong>Doses:</strong></p>
-      <ol>
+<% image_url = @cocktail.photo? ? cl_image_path(@cocktail.photo.path, height: 1000, width: 1000) : image_path('background.jpg') %>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= image_url %>);">
+  <div class="banner-content">
+    <h1><%= @cocktail.name %></h1>
+    <div class="card-white">
+      <ul>
         <% @cocktail.doses.each do |dose| %>
+          <p><strong>Doses:</strong></p>
           <li>
           <%= dose.description %> <%= dose.ingredient.name %> |
           <%= link_to "Delete", dose_path(dose), method: :delete %>
           </li>
         <% end %>
-      </ol>
-
-      <%= link_to "Edit", edit_cocktail_path(@cocktail) %> |
-      <%= link_to "Delete", cocktail_path(@cocktail), method: :delete %> |
-      <%= link_to "Back", cocktails_path %> |
-      <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail) %>
+      </ul>
     </div>
+    <%= link_to "Edit", edit_cocktail_path(@cocktail) %> |
+    <%= link_to "Delete", cocktail_path(@cocktail), method: :delete %> |
+    <%= link_to "Back", cocktails_path %> |
+    <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail) %>
   </div>
 </div>
+
+
+
